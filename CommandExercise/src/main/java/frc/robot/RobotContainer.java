@@ -9,7 +9,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.CarterCommand;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.CarterSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.SravaniSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -32,6 +34,9 @@ public class RobotContainer {
   private final SravaniCommand m_sravaniCommand = new SravaniCommand(m_sravaniSubsystem);
 
 
+  private final CarterSubsystem m_carterSubsystem = new CarterSubsystem();
+  private final CarterCommand m_carterCommand = new CarterCommand(m_carterSubsystem);
+
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -40,6 +45,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     CommandScheduler.getInstance().setDefaultCommand(m_sravaniSubsystem, m_sravaniCommand);
+    CommandScheduler.getInstance().setDefaultCommand(m_carterSubsystem, m_carterCommand);
   }
 
   /**
