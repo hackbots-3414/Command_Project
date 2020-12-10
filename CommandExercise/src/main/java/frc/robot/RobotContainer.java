@@ -10,7 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.MarcusCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.MarcusSubsystem;
 import frc.robot.subsystems.SravaniSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -31,6 +33,9 @@ public class RobotContainer {
   private final SravaniSubsystem m_sravaniSubsystem = new SravaniSubsystem();
   private final SravaniCommand m_sravaniCommand = new SravaniCommand(m_sravaniSubsystem);
 
+  private final MarcusSubsystem m_marcusSubsystem = new MarcusSubsystem();
+  private final MarcusCommand m_marcusCommand = new MarcusCommand(m_marcusSubsystem);
+
 
 
   /**
@@ -40,6 +45,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     CommandScheduler.getInstance().setDefaultCommand(m_sravaniSubsystem, m_sravaniCommand);
+    CommandScheduler.getInstance().setDefaultCommand(m_marcusSubsystem, m_marcusCommand);
   }
 
   /**
