@@ -36,6 +36,9 @@ public class RobotContainer {
   private final SanjanaSubsystem m_sanjana = new SanjanaSubsystem();
   private final SanjanaCommand m_sanjanaCommand = new SanjanaCommand(m_sanjana);
 
+  private final SanjanaClass2 m_sanjanacommand2 = new SanjanaClass2();
+  
+
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -64,6 +67,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return m_sanjanacommand2;
   }
 }
