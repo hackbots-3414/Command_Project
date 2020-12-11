@@ -13,9 +13,11 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 
 import frc.robot.subsystems.SravaniSubsystem;
+import frc.robot.subsystems.jacobmsubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.SravaniCommand;
+import frc.robot.commands.jacobmcommand;
 
 
 /**
@@ -33,7 +35,8 @@ public class RobotContainer {
   private final SravaniSubsystem m_sravaniSubsystem = new SravaniSubsystem();
   private final SravaniCommand m_sravaniCommand = new SravaniCommand(m_sravaniSubsystem);
 
-
+  private final jacobmsubsystem m_JacobSubsystem = new jacobmsubsystem();
+  private final jacobmcommand m_jacobmcommand = new jacobmcommand(m_JacobSubsystem);
 
 
   /**
@@ -43,7 +46,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     CommandScheduler.getInstance().setDefaultCommand(m_sravaniSubsystem, m_sravaniCommand);
-   
+    CommandScheduler.getInstance().setDefaultCommand(m_JacobSubsystem, m_jacobmcommand);
   }
 
   /**
