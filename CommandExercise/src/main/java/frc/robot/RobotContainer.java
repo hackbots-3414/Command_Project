@@ -9,17 +9,21 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.MrZRunLoopCommand;
-import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.MrZSubsystem;
-import frc.robot.commands.LucasCommand;
-import frc.robot.subsystems.LucasSubsystem;
-import frc.robot.subsystems.SravaniSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.GrantsCommand;
+import frc.robot.commands.LucasCommand;
+import frc.robot.commands.MrZRunLoopCommand;
+import frc.robot.commands.SanjanaCommand;
 import frc.robot.commands.SravaniCommand;
+import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.GrantsSubsystem;
+import frc.robot.subsystems.LucasSubsystem;
+import frc.robot.subsystems.MrZSubsystem;
+import frc.robot.subsystems.SanjanaSubsystem;
+import frc.robot.subsystems.SravaniSubsystem;
 
 
 /**
@@ -36,12 +40,20 @@ public class RobotContainer {
 
   private final SravaniSubsystem m_sravaniSubsystem = new SravaniSubsystem();
   private final SravaniCommand m_sravaniCommand = new SravaniCommand(m_sravaniSubsystem);
+  private final GrantsSubsystem m_grantsSubsystem = new GrantsSubsystem();
+  private final GrantsCommand m_grantsCommand = new GrantsCommand(m_grantsSubsystem);
 
   // Mr. Z's example
   private final MrZSubsystem mrZSubsystem = new MrZSubsystem();
   private final XboxController joystick = new XboxController(0);
+
+  private final SanjanaSubsystem m_sanjana = new SanjanaSubsystem();
+  private final SanjanaCommand m_sanjanaCommand = new SanjanaCommand(m_sanjana);
+
+  private final SanjanaClass2 m_sanjanacommand2 = new SanjanaClass2();
   private final LucasSubsystem m_lucasSubsystem = new LucasSubsystem();
   private final LucasCommand m_lucasCommand = new LucasCommand(m_lucasSubsystem);
+
 
 
   /**
@@ -52,9 +64,22 @@ public class RobotContainer {
     configureButtonBindings();
     //CommandScheduler.getInstance().setDefaultCommand(m_sravaniSubsystem, m_sravaniCommand);
 
+ 
+
+    CommandScheduler.getInstance().setDefaultCommand(m_sanjana, m_sanjanaCommand);
+
+
+    CommandScheduler.getInstance().setDefaultCommand(m_sravaniSubsystem, m_sravaniCommand);
+    
+
+    CommandScheduler.getInstance().setDefaultCommand(m_grantsSubsystem, m_grantsCommand);
+
+
     CommandScheduler.getInstance().setDefaultCommand(m_lucasSubsystem, m_lucasCommand);
 
+
    
+
 
   }
 
@@ -77,6 +102,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return m_sanjanacommand2;
   }
 }
