@@ -10,14 +10,22 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
+
 import frc.robot.commands.SanjanaCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 
 import frc.robot.subsystems.SanjanaSubsystem;
 
 import frc.robot.commands.LucasCommand;
-import frc.robot.subsystems.ExampleSubsystem;
+
+import frc.robot.commands.GrantsCommand;
+
+import frc.robot.subsystems.GrantsSubsystem;
+
+import frc.robot.commands.LucasCommand;
+
 import frc.robot.subsystems.LucasSubsystem;
+
 import frc.robot.subsystems.SravaniSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -38,18 +46,17 @@ public class RobotContainer {
 
   private final SravaniSubsystem m_sravaniSubsystem = new SravaniSubsystem();
   private final SravaniCommand m_sravaniCommand = new SravaniCommand(m_sravaniSubsystem);
+  private final GrantsSubsystem m_grantsSubsystem = new GrantsSubsystem();
+  private final GrantsCommand m_grantsCommand = new GrantsCommand(m_grantsSubsystem);
 
-<<<<<<< HEAD
+
   private final SanjanaSubsystem m_sanjana = new SanjanaSubsystem();
   private final SanjanaCommand m_sanjanaCommand = new SanjanaCommand(m_sanjana);
 
   private final SanjanaClass2 m_sanjanacommand2 = new SanjanaClass2();
-  
-
-=======
   private final LucasSubsystem m_lucasSubsystem = new LucasSubsystem();
   private final LucasCommand m_lucasCommand = new LucasCommand(m_lucasSubsystem);
->>>>>>> origin/main
+
 
 
   /**
@@ -58,16 +65,23 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-<<<<<<< HEAD
+
  
 
     CommandScheduler.getInstance().setDefaultCommand(m_sanjana, m_sanjanaCommand);
-=======
+
+
+    CommandScheduler.getInstance().setDefaultCommand(m_sravaniSubsystem, m_sravaniCommand);
+    
+
+    CommandScheduler.getInstance().setDefaultCommand(m_grantsSubsystem, m_grantsCommand);
+
 
     CommandScheduler.getInstance().setDefaultCommand(m_lucasSubsystem, m_lucasCommand);
->>>>>>> origin/main
+
 
    
+
 
   }
 
