@@ -15,6 +15,9 @@ import frc.robot.subsystems.ExampleSubsystem;
 
 import frc.robot.subsystems.SanjanaSubsystem;
 
+import frc.robot.commands.LucasCommand;
+import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.LucasSubsystem;
 import frc.robot.subsystems.SravaniSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -36,12 +39,17 @@ public class RobotContainer {
   private final SravaniSubsystem m_sravaniSubsystem = new SravaniSubsystem();
   private final SravaniCommand m_sravaniCommand = new SravaniCommand(m_sravaniSubsystem);
 
+<<<<<<< HEAD
   private final SanjanaSubsystem m_sanjana = new SanjanaSubsystem();
   private final SanjanaCommand m_sanjanaCommand = new SanjanaCommand(m_sanjana);
 
   private final SanjanaClass2 m_sanjanacommand2 = new SanjanaClass2();
   
 
+=======
+  private final LucasSubsystem m_lucasSubsystem = new LucasSubsystem();
+  private final LucasCommand m_lucasCommand = new LucasCommand(m_lucasSubsystem);
+>>>>>>> origin/main
 
 
   /**
@@ -50,9 +58,14 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+<<<<<<< HEAD
  
 
     CommandScheduler.getInstance().setDefaultCommand(m_sanjana, m_sanjanaCommand);
+=======
+
+    CommandScheduler.getInstance().setDefaultCommand(m_lucasSubsystem, m_lucasCommand);
+>>>>>>> origin/main
 
    
 
