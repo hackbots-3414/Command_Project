@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.Div;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.GrantsCommand;
 import frc.robot.commands.LucasCommand;
@@ -21,6 +22,7 @@ import frc.robot.commands.SravaniCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.GrantsSubsystem;
 import frc.robot.subsystems.LucasSubsystem;
+import frc.robot.subsystems.MaxSub;
 import frc.robot.subsystems.MrZSubsystem;
 import frc.robot.subsystems.SanjanaSubsystem;
 import frc.robot.subsystems.SravaniSubsystem;
@@ -54,7 +56,8 @@ public class RobotContainer {
   private final LucasSubsystem m_lucasSubsystem = new LucasSubsystem();
   private final LucasCommand m_lucasCommand = new LucasCommand(m_lucasSubsystem);
 
-
+  private final MaxSub m_maxsub2 = new MaxSub();
+  private final Div m_maxcom1 = new Div(m_maxsub2);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -70,6 +73,9 @@ public class RobotContainer {
 
 
     CommandScheduler.getInstance().setDefaultCommand(m_sravaniSubsystem, m_sravaniCommand);
+
+    CommandScheduler.getInstance().setDefaultCommand(m_maxsub2, m_maxcom1);
+
     
 
     CommandScheduler.getInstance().setDefaultCommand(m_grantsSubsystem, m_grantsCommand);
@@ -79,6 +85,7 @@ public class RobotContainer {
 
 
    
+
 
 
   }
